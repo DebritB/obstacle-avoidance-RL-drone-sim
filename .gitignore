@@ -1,0 +1,6 @@
+__pycache__/
+.venv/
+*.pyc
+*.pth
+src/ppo_agent_step_new2_load2600000_4.pth
+src/ppo_agent_step_new3_load1_540000_4.pth 

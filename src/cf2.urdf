@@ -1,0 +1,164 @@
+<?xml version="1.0" ?>
+<robot name="quadcopter">
+  <!-- Base link representing the main body as a smaller square -->
+  <link name="baseLink">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.05" ixy="0" ixz="0" iyy="0.05" iyz="0" izz="0.05"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.2 0.05"/> <!-- Reduced body size to 0.2x0.2x0.05 -->
+      </geometry>
+      <material name="grey">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.2 0.05"/> <!-- Collision box matching the visual geometry -->
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Define each rotor and attach them with shorter arms positioned horizontally -->
+  <!-- Rotor 1 (top-right corner) with shorter horizontal arm -->
+  <link name="arm1">
+    <visual>
+      <origin rpy="0 1.5708 0.7854" xyz="0.07 0.07 0"/> <!-- 45 degrees rotation to align horizontally -->
+      <geometry>
+        <cylinder radius="0.01" length="0.1"/> <!-- Shorter arm connecting base to rotor1 -->
+      </geometry>
+      <material name="grey">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="arm1_joint" type="fixed">
+    <parent link="baseLink"/>
+    <child link="arm1"/>
+    <origin xyz="0.05 0.05 0" rpy="0 0 0"/>
+  </joint>
+  <link name="rotor1">
+    <visual>
+      <origin rpy="0 0 0" xyz="0.1 0.1 0"/> <!-- Position rotor right after arm -->
+      <geometry>
+        <cylinder radius="0.05" length="0.02"/> <!-- Slightly smaller rotor for compact look -->
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="joint1" type="fixed">
+    <parent link="arm1"/>
+    <child link="rotor1"/>
+    <origin xyz="0.03 0.03 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Rotor 2 (top-left corner) with shorter horizontal arm -->
+  <link name="arm2">
+    <visual>
+      <origin rpy="0 1.5708 -0.7854" xyz="-0.07 0.07 0"/> <!-- -45 degrees rotation to align horizontally -->
+      <geometry>
+        <cylinder radius="0.01" length="0.1"/> <!-- Shorter arm connecting base to rotor2 -->
+      </geometry>
+      <material name="grey">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="arm2_joint" type="fixed">
+    <parent link="baseLink"/>
+    <child link="arm2"/>
+    <origin xyz="-0.05 0.05 0" rpy="0 0 0"/>
+  </joint>
+  <link name="rotor2">
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.1 0.1 0"/> <!-- Position rotor right after arm -->
+      <geometry>
+        <cylinder radius="0.05" length="0.02"/> <!-- Slightly smaller rotor for compact look -->
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="joint2" type="fixed">
+    <parent link="arm2"/>
+    <child link="rotor2"/>
+    <origin xyz="-0.03 0.03 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Rotor 3 (bottom-left corner) with shorter horizontal arm -->
+  <link name="arm3">
+    <visual>
+      <origin rpy="0 1.5708 -2.3562" xyz="-0.07 -0.07 0"/> <!-- -135 degrees rotation to align horizontally -->
+      <geometry>
+        <cylinder radius="0.01" length="0.1"/> <!-- Shorter arm connecting base to rotor3 -->
+      </geometry>
+      <material name="grey">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="arm3_joint" type="fixed">
+    <parent link="baseLink"/>
+    <child link="arm3"/>
+    <origin xyz="-0.05 -0.05 0" rpy="0 0 0"/>
+  </joint>
+  <link name="rotor3">
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.1 -0.1 0"/> <!-- Position rotor right after arm -->
+      <geometry>
+        <cylinder radius="0.05" length="0.02"/> <!-- Slightly smaller rotor for compact look -->
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="joint3" type="fixed">
+    <parent link="arm3"/>
+    <child link="rotor3"/>
+    <origin xyz="-0.03 -0.03 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Rotor 4 (bottom-right corner) with shorter horizontal arm -->
+  <link name="arm4">
+    <visual>
+      <origin rpy="0 1.5708 2.3562" xyz="0.07 -0.07 0"/> <!-- 135 degrees rotation to align horizontally -->
+      <geometry>
+        <cylinder radius="0.01" length="0.1"/> <!-- Shorter arm connecting base to rotor4 -->
+      </geometry>
+      <material name="grey">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="arm4_joint" type="fixed">
+    <parent link="baseLink"/>
+    <child link="arm4"/>
+    <origin xyz="0.05 -0.05 0" rpy="0 0 0"/>
+  </joint>
+  <link name="rotor4">
+    <visual>
+      <origin rpy="0 0 0" xyz="0.1 -0.1 0"/> <!-- Position rotor right after arm -->
+      <geometry>
+        <cylinder radius="0.05" length="0.02"/> <!-- Slightly smaller rotor for compact look -->
+      </geometry>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="joint4" type="fixed">
+    <parent link="arm4"/>
+    <child link="rotor4"/>
+    <origin xyz="0.03 -0.03 0" rpy="0 0 0"/>
+  </joint>
+
+</robot>
