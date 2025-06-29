@@ -136,7 +136,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 Pretrained PPO agent models are available for quick evaluation and benchmarking.
 
-- **Download Link:** [Google Drive - PPO Agent Models](<your-gdrive-link-here>)
+- **Download Link:** https://drive.google.com/drive/folders/1QV8UiIMlaDRjgNqyGPnGsRhraTJNIvEf?usp=sharing
 
 After downloading, place the model files (e.g., `ppo_agent.pth`, `ppo_agent_step_new2_load2600000_4.pth`) in the `src/` directory or specify the path when loading in your scripts or GUI.
 
