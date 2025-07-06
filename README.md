@@ -34,7 +34,7 @@ https://github.com/user-attachments/assets/3bbcbe77-49a9-4fe8-b8e5-2f3bee86bbf1
 
 1. **Clone the repository:**
    ```bash
-   git clone <repo-url>
+   git clone https://github.com/DebritB/obstacle-avoidance-RL-drone-sim.git
    cd obstacle_avoidance_rl_drone
    ```
 2. **Install dependencies:**
